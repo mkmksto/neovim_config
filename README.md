@@ -33,10 +33,8 @@
 
 ## Configuration (i.e. things you might need to do manually after installing)
 
-- install a local typescript server for `vue`'s `volar takeover` mode (check `global_ts` from `lspconfig.lua`)
 - for `DAP`, you might have to manually type the location of some of the adapters, e.g. for python
   - see `dap.adapters.python` under `debugging.lua`
-- you might need to configure a custom location if you'd want to use a dictionary for `MD` files
 - make sure your folder structure matches the repos the plugins will be setting up (e.g. telescope repo, telescope searching for notes, etc.)
 - also check folder structure against `projections-nvim.lua` and `telescope`.
 - install your `DAP` adapters and ensure the paths match the locations @ `debugging.lua`
