@@ -11,7 +11,6 @@
 
 - nvim >= `0.9.1` (used `0.8.3` previously)
 - git
-- Installing `black`, `isort` and `pylint` can sometimes result in `unable to create python3 venv environment`. Check this [stackoverflow](https://askubuntu.com/questions/958303/unable-to-create-virtual-environment-with-python-3-6) post
 
 ### OS-level dependencies
 
@@ -44,6 +43,7 @@
 
 ## Common issues
 
+- Installing `black`, `isort` and `pylint` can sometimes result in `unable to create python3 venv environment`. Check this [stackoverflow](https://askubuntu.com/questions/958303/unable-to-create-virtual-environment-with-python-3-6) post
 - `;5u` appearing when i try to exit a terminal: this happens when you press `Ctrl+Enter` (sometimes i forget that i'm actually holding `ctrl` because of `ctrl+space` zsh autocomplete)
 - `pylint` false positives about import error: probably has to do with `NULL LS` being confused about which `pylint` installation to use, when pylint is installed from mason, it attempts to use that, and as a result, it may try to resolve import dependencies from where the global `mason` pylint package is installed.
 
@@ -64,9 +64,22 @@ includes:
 - `chsh -s $(which zsh)` to change the default shell
 - remaps for windows `terminal` to enable common keymaps. (like `s-space` and `c-s-p`)
 
-#### Remaps (Windows Neovim (WSL))
+#### Other things you'll need to config/install manually
 
-##### To enable shift+space as your escape key for the windows terminal
+- search how to sync clipboard with windows if using WSL
+- comment using c-/ not working
+- markdown preview (not opening browser if using WSL- prob because the browser is hardcoded to a linux path)
+
+## Windows Setup
+
+- config is located at `$Appdata/Local/nvim` (create a folder is none yet)
+- `mklink /D link "D:\path\to\neovim\config"` (create symlink from your neovim config (in this case, located @ drive D, to where the neovim config should be located(at the appdata folder) ))
+- install fzf, rg, fd
+- install `zig` using chocolatey (https://stackoverflow.com/questions/75587679/neovim-treesitter-returning-no-c-complier-error), without `gcc` or `zig`, treesitter fails to install things.
+
+### Remaps (Windows Neovim (WSL))
+
+#### To enable shift+space as your escape key for the windows terminal
 
 ```json
     "actions":
@@ -84,7 +97,7 @@ includes:
     ],
 ```
 
-##### To enable ctrl+shift+p to open telescope key maps
+#### To enable ctrl+shift+p to open telescope key maps
 
 1. remap windows terminal's command palette to `ctrl+alt+p`
 2. remove this line inside the JSON file
@@ -109,33 +122,3 @@ includes:
 ```
 
 > Note: you can't write `\x1b`, apparently it's not valid JSON, you have to use `/u001b` [source](https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions)
-
-##### Other things you'll need to config/install manually
-
-`lspconfig.lua` (around line 157)
-
-- instead of hardcoding the username, check if lua/vim has functions for this
-- or rather, just try using the relative path to home `~/`, if this doesn't work, try `vim.fn.expand`
-- install a global TS lsp here
-
-- search how to sync clipboard with windows if using WSL
-- comment using c-/ not working
-- markdown preview (not opening browser if using WSL- prob because the browser is hardcoded to a linux path)
-
-## Snapshots
-
-- to create snapshots, type `:PackerSnapshot <name of snap>`
-- `name of snap` can be an absolute path
-- for the sake of simplicity and git tracking, snapshots are saved under `./packer_snaps`, where `.` is the current directory (`~/.config/nvim/`)
-- check the [docs](https://github.com/wbthomason/packer.nvim#custom-initialization) to see how to config packer to use a custon snap directory
-
-### Important snapshots
-
-- `02-25-2023-23-58` `(11:58PM):` unlocked all packages then resynced packer, changed from `sumneko_lua` to `lua_ls`, added more `pcalls`, added more support for `WSL`, packer bootstrap.
-
-## Windows Setup
-
-- config is located at `$Appdata/Local/nvim` (create a folder is none yet)
-- `mklink /D link "D:\path\to\neovim\config"` (create symlink from your neovim config (in this case, located @ drive D, to where the neovim config should be located(at the appdata folder) ))
-- install fzf, rg, fd
-- install `zig` using chocolatey (https://stackoverflow.com/questions/75587679/neovim-treesitter-returning-no-c-complier-error), without `gcc` or `zig`, treesitter fails to install things.
