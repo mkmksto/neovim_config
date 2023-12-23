@@ -30,7 +30,7 @@ keymap.set("n", "<leader>bd", "<cmd>Bdelete!<CR>", { desc = "[B]uffer - [D]elete
 keymap.set({ "n", "i" }, "<C-s>", "<cmd>write<CR>", { desc = "Write to file/save file", noremap = true, silent = true })
 -- keymap.set("i", "<C-s>", "", { noremap = true, silent = true })
 
--- keep cursor in the middle when jumping through search results
+-- keep cursor in the middle when jumping through search results (https://youtu.be/w7i4amO_zaE?t=1590)
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
@@ -51,11 +51,11 @@ keymap.set("n", "<leader><S-Tab>", "<cmd>tabp<CR>", { desc = "Previous tab", nor
 
 -- nvim tree toglee
 keymap.set(
-    "n",
-    "<C-b>",
-    -- "<cmd>NvimTreeToggle<CR>",
-    "<cmd>Neotree toggle<CR>",
-    { desc = "Toggle File Explorer(NvimTree)", noremap = true, silent = true }
+	"n",
+	"<C-b>",
+	-- "<cmd>NvimTreeToggle<CR>",
+	"<cmd>Neotree toggle<CR>",
+	{ desc = "Toggle File Explorer(NvimTree)", noremap = true, silent = true }
 )
 
 ---------------------------
@@ -71,8 +71,8 @@ keymap.set("n", "Q", "<nop>", { desc = "they said S-q is dangerous, dunno why" }
 
 -- toggles markdown checkboxes
 keymap.set(
-    "n",
-    "<leader>tt",
-    "<cmd>lua require('toggle-checkbox').toggle()<CR>",
-    { desc = "Toggle markdown checkboxes", noremap = true, silent = true }
+	"n",
+	"<leader>tt",
+	"<cmd>lua require('toggle-checkbox').toggle()<CR>",
+	{ desc = "Toggle markdown checkboxes", noremap = true, silent = true }
 )
