@@ -27,10 +27,11 @@ return {
             comment.setup({
                 pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
                 toggler = {
-                    line = "<C-/>",
+                    -- line = "<C-/>",
+                    line = "//",
                 },
                 opleader = {
-                    line = "<C-/>",
+                    line = "//",
                     block = "gb",
                 },
             })
