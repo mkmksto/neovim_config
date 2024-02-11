@@ -8,6 +8,14 @@ keymap.set("n", "<C-k>", "<C-u>zz")
 keymap.set("n", "{", "{zz")
 keymap.set("n", "}", "}zz")
 
+-- Clipboard Image Plugin (paste image command)
+keymap.set(
+    "n",
+    "<leader>ss",
+    "<cmd>PasteImg<CR>",
+    { desc = "[Clipboard Image] Paste image from clipboard into markdown file", noremap = true, silent = true }
+)
+
 -- my remaps
 -- keymap.set("i", "<S-space", "<Esc>")
 -- keymap.set("i", "<C-j>", "<Esc>o")
