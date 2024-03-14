@@ -21,6 +21,7 @@ return {
 
         mason_lspconfig.setup({
             -- list of servers for mason to install
+            -- list of language servers: https://github.com/williamboman/mason-lspconfig.nvim
             ensure_installed = {
                 "tsserver",
                 "html",
@@ -38,6 +39,7 @@ return {
                 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls
                 "sqlls",
                 "clangd",
+                "texlab",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
