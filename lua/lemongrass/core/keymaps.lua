@@ -19,7 +19,7 @@ keymap.set(
 -- my remaps
 -- keymap.set("i", "<S-space", "<Esc>")
 -- keymap.set("i", "<C-j>", "<Esc>o")
-keymap.set("n", "<C-Enter>", "o<Esc>", { desc = "Create empty newline" })
+-- keymap.set("n", "<C-Enter>", "o<Esc>", { desc = "Create empty newline" })
 keymap.set({ "i", "n", "v" }, "<C-z>", "")
 keymap.set("n", " ", "")
 
