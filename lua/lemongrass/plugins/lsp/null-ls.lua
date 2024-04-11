@@ -23,6 +23,7 @@ return {
                 --  to disable file types use
                 --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
                 formatting.prettierd,
+                formatting.latexindent,
                 formatting.stylua,
                 formatting.black,
                 formatting.isort,

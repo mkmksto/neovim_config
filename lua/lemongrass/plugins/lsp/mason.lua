@@ -45,6 +45,7 @@ return {
             automatic_installation = true, -- not the same as ensure_installed
         })
 
+        -- from here?: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
         mason_null_ls.setup({
             -- list of formatters & linters for mason to install
             ensure_installed = {
@@ -53,6 +54,7 @@ return {
                 "eslint_d",
                 "black",
                 "isort",
+                "latexindent",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true,
