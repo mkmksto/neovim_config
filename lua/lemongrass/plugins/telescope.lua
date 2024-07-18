@@ -187,13 +187,24 @@ return {
                         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
                     },
                 },
+                -- Note: you can use a .ignore file at the root of your project so that
+                -- telescope will not search through it
+                -- https://github.com/nvim-telescope/telescope.nvim/issues/522#issuecomment-1107441677
+                -- https://github.com/BurntSushi/ripgrep/issues/673
                 file_ignore_patterns = {
                     "static",
                     "templates",
                     "**/pnpm%-lock.yaml",
                     "**/package%-lock.json",
                     "dictionary_files",
-                    ".json",
+                    -- ".json",
+                    "package.json",
+                    "**/package.json",
+                    "pnpm-lock.yaml",
+                    "**/pnpm-lock.yaml",
+                    "package-lock.json",
+                    "**/package-lock.json",
+                    -- ".yaml",
                     ".ico",
                     ".jpg",
                     ".jpeg",
