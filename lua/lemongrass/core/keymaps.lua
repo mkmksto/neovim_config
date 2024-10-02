@@ -3,8 +3,10 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
 -- maintain centered lines
-keymap.set("n", "<C-j>", "<C-d>zz")
-keymap.set("n", "<C-k>", "<C-u>zz")
+-- keymap.set("n", "<C-j>", "<C-d>zz")
+-- keymap.set("n", "<C-k>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "{", "{zz")
 keymap.set("n", "}", "}zz")
 
