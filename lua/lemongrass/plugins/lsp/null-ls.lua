@@ -27,7 +27,34 @@ return {
                 formatting.stylua,
                 formatting.black,
                 formatting.isort,
-                diagnostics.pylint,
+                -- diagnostics.pylint,
+                diagnostics.pylint.with({
+                    command = function()
+                        local venv_path = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+                        local python_path
+                        local pylint_path
+
+                        if venv_path then
+                            python_path = venv_path .. "/bin/python"
+                            pylint_path = venv_path .. "/bin/pylint"
+                        else
+                            python_path = vim.fn.exepath("python") or vim.fn.exepath("python3")
+                            pylint_path = vim.fn.exepath("pylint")
+                        end
+
+                        if pylint_path and vim.fn.executable(pylint_path) == 1 then
+                            return pylint_path
+                        elseif python_path and vim.fn.executable(python_path) == 1 then
+                            return python_path .. " -m pylint"
+                        else
+                            return nil
+                        end
+                    end,
+                    condition = function(utils)
+                        return utils.root_has_file({ "pyproject.toml", "setup.py", "setup.cfg", ".pylintrc", ".git" })
+                    end,
+                }),
+
                 diagnostics.eslint_d.with({ -- js/ts linter
                     condition = function(utils)
                         return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
