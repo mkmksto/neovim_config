@@ -154,25 +154,45 @@ return {
         lspconfig["pyright"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            on_init = function(client)
-                -- before_init = function(client)
+            before_init = function(_, config)
+                print("inside before_init")
                 local venv_path = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
                 local python_path
 
                 if venv_path then
-                    python_path = venv_path .. "/bin/python"
+                    python_path = venv_path .. "/bin/python3"
                 else
-                    python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+                    -- python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+                    python_path = vim.fn.exepath("python3")
                 end
 
                 -- Set pythonPath for Pyright
-                client.config.settings.python.pythonPath = python_path
+                config.settings.python.pythonPath = python_path
 
                 -- Print the Python path Pyright will use
                 print("Pyright is using Python interpreter at:", python_path)
 
-                client.notify("workspace/didChangeConfiguration")
+                -- client.notify("workspace/didChangeConfiguration")
             end,
+            -- on_init = function(client)
+            --     -- before_init = function(client)
+            --     local venv_path = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+            --     local python_path
+            --
+            --     if venv_path then
+            --         python_path = venv_path .. "/bin/python"
+            --     else
+            --         python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+            --     end
+            --
+            --     -- Set pythonPath for Pyright
+            --     client.config.settings.python.pythonPath = python_path
+            --
+            --     -- Print the Python path Pyright will use
+            --     print("Pyright is using Python interpreter at:", python_path)
+            --
+            --     client.notify("workspace/didChangeConfiguration")
+            -- end,
         })
 
         lspconfig["bashls"].setup({
