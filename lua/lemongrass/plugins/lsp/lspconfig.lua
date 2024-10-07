@@ -155,6 +155,8 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             before_init = function(_, config)
+                -- reference
+                -- https://github.com/zazencodes/zazencodes-youtube/blob/main/src/neovim-lazy-ide-2024/.config/nvim/lua/plugins/lazy.lua#L156
                 print("inside before_init")
                 local venv_path = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
                 local python_path
