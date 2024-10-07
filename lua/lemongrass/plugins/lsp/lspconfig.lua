@@ -164,8 +164,8 @@ return {
                 if venv_path then
                     python_path = venv_path .. "/bin/python3"
                 else
-                    -- python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
-                    python_path = vim.fn.exepath("python3")
+                    python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+                    -- python_path = vim.fn.exepath("python3")
                 end
 
                 -- Set pythonPath for Pyright
