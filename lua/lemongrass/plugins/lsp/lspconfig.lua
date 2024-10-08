@@ -157,7 +157,7 @@ return {
             before_init = function(_, config)
                 -- reference
                 -- https://github.com/zazencodes/zazencodes-youtube/blob/main/src/neovim-lazy-ide-2024/.config/nvim/lua/plugins/lazy.lua#L156
-                print("inside before_init")
+                -- print("inside before_init")
                 local venv_path = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
                 local python_path
 
@@ -172,7 +172,7 @@ return {
                 config.settings.python.pythonPath = python_path
 
                 -- Print the Python path Pyright will use
-                print("Pyright is using Python interpreter at:", python_path)
+                -- print("Pyright is using Python interpreter at:", python_path)
 
                 -- client.notify("workspace/didChangeConfiguration")
             end,
