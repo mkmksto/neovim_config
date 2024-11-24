@@ -211,6 +211,7 @@ return {
                     ".png",
                     ".gif",
                     ".svg",
+                    ".webp",
                 },
             },
             -- doesn't work
