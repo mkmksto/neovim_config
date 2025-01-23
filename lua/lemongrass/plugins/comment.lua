@@ -3,6 +3,7 @@ return {
     config = function()
         local current_os = vim.loop.os_uname().sysname
         local is_win = string.find(current_os, "Windows")
+        local is_mac = string.find(current_os, "Darwin")
 
         local is_linux = string.find(current_os, "Linux")
 
@@ -23,7 +24,7 @@ return {
                     block = "gb",
                 },
             })
-        elseif is_linux then
+        elseif is_linux or is_mac then
             comment.setup({
                 pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
                 toggler = {
