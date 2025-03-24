@@ -45,8 +45,8 @@ keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
 -- Resize window
-keymap.set("n", "<C-left>", "<C-w>10<", { desc = "Resize window (decrease width)" })
-keymap.set("n", "<C-right>", "<C-w>10>", { desc = "Resize window (increase width)" })
+keymap.set("n", "<C-s-left>", "<C-w>10<", { desc = "Resize window (decrease width)" })
+keymap.set("n", "<C-s-right>", "<C-w>10>", { desc = "Resize window (increase width)" })
 keymap.set("n", "<C-up>", "<C-w>6+", { desc = "Resize window (increase height)" })
 keymap.set("n", "<C-down>", "<C-w>6-", { desc = "Resize window (decrease height)" })
 
